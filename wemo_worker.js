@@ -16,7 +16,7 @@ wemo.load(process.env.wemo_IP, function(deviceInfo) {
     console.log('Binary State changed to: %s', value);
   });   
   var app = Consumer.create({
-    queueUrl: 'https://sqs.us-west-1.amazonaws.com/996941631084/Wemo',
+    queueUrl: process.env.queue_URL,
     handleMessage: function (message, done) {
       if (message) {
         console.log('message is', message.Body);
