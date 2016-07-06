@@ -4,9 +4,9 @@ body{
   font-size: 18px;
   background: linear-gradient(89deg, #38dfca, #388ddf, #9c38df, #df386a, #ecb036);
   background-size: 800% 800%;
-  -webkit-animation: AnimationName 60s ease infinite;
-  -moz-animation: AnimationName 60s ease infinite;
-  animation: AnimationName 60s ease infinite;
+  -webkit-animation: AnimationName 100s ease infinite;
+  -moz-animation: AnimationName 100s ease infinite;
+  animation: AnimationName 100s ease infinite;
 
 }
 

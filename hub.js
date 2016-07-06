@@ -25,19 +25,20 @@ var server = http.createServer(function(request, response){
 server.listen(8080);
 
 io = sio.listen(server);
+console.log(io);
 // store messages
 var message;
 // Define a message handler
-io.sockets.on('connection', function (socket) {
-  socket.on('message', function (msg) {
-    console.log('Received: ', msg);
-    message = msg;
     wemo.load(process.env.wemo_IP, (deviceInfo) => {
       var client = wemo.client(deviceInfo);
       //console.log(deviceInfo);   
       client.on('binaryState', (value) => {
         console.log('Binary State changed to: %s', value);
       });   
+      io.sockets.on('connection', function (socket) {
+        socket.on('message', function (msg) {
+          console.log('Received: ', msg);
+          message = msg;
       client.getBinaryState((err,data) => {
         console.log('data is', data);
         //var message = JSON.parse(body)[0];
